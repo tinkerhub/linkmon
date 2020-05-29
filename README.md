@@ -12,6 +12,7 @@ Create a ```env.dev.sh``` in ops directory and add the following
 
 ```
 APP_SETTINGS=donationpage.config.TestingConfig
+HOST=<host_url>
 ```
 
 then run 
