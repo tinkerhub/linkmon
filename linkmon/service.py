@@ -46,9 +46,9 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/<short_url>')
-def redirect_short_url(short_url):
-    custom_route = short_url
+@app.route('/<custom_route>')
+def redirect_short_url(custom_route):
+    custom_route = custom_route
     url = host  
     try: 
         with sqlite3.connect('database/urls.db') as conn:
