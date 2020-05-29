@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  dev:
+    image: linkmon:latest
+    hostname: linkmon-dev
+    env_file: ops/env.dev.sh
+    volumes:
+      - .:/app
+    build:
+        context: .
+        dockerfile: ops/Dockerfile
+        args:
+        - GITHUB_TOKEN=${GITHUB_TOKEN}
+    command: ["tail", "-f", "/dev/null"]
+
+  web:
+    image: linkmon:latest
+    hostname: linkmon-web
+    env_file: ops/env.dev.sh
+    ports:
+        - "5000:5000"
+    volumes:
+      - .:/app
+  
+  nginx:
+    build: ops/nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "8080:8080"
