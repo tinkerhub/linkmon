@@ -41,7 +41,7 @@ def home():
                     [actual_url, custom_route]
                 )
                 conn.commit()
-        return render_template('index.html', short_url=host + custom_route)
+        return render_template('index.html', custom_url=host + custom_route)
         
     return render_template('index.html')
 
