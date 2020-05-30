@@ -12,6 +12,14 @@ except ImportError:
     from urlparse import urlparse  
     str_encode = str
 from os import mkdir
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    """
+    To check if the server is up or not
+    """
+    return "O.K", 200
+
 def let_there_be_table():
     create_table = """ 
         CREATE TABLE STORE_URL(
@@ -30,14 +38,6 @@ def let_there_be_table():
         conn = sqlite3.connect('database/urls.db')
 
 let_there_be_table()
-
-@app.route('/health', methods=['GET'])
-def health_check():
-    """
-    To check if the server is up or not
-    """
-    return "O.K", 200
-
 
 host = app.config['HOST']
 
