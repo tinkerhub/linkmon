@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+      </head>
+      <body>
+         <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#">TinkerHub URL Generator (Linkmon)</a>
+               </div>
+               <div id="navbar" class="navbar-collapse collapse">
+               </div>
+            </div>
+         </nav>
+         <div class="jumbotron">
+            <div class="container">
+               <br />
+               {% if not custom_url %}
+               <div class="row">
+                  <div class="col-md-offset-5 col-md-3">
+                     <h4>Enter URL and route</h4>
+                     <form method="post" class="navbar-form navbar-right" action="">
+                        <div class="form-group">
+                           <input type="text" id="act_url" name="act_url" class="form-control input-lg chat-input" placeholder="URL" />
+                           <input type="text" id="custom_route" name="custom_route" class="form-control input-lg chat-input" placeholder="route" />
+                           <button type="submit" class="btn btn-lg btn-info">Submit</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+               {% else %}
+               <div>
+                  Enjoy, your shortened URL is: <a href="{{custom_url}}"> {{custom_url}}</a>
+               </div>
+               {% endif %}
+            </div>
+         </div>
+         <footer>
+            <p>&copy; Made with ♥️ by TinkerHub</p>
+         </footer>
+         </div> 
+      </body>
+   </html>

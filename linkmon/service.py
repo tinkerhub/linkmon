@@ -11,9 +11,7 @@ try:
 except ImportError:
     from urlparse import urlparse  
     str_encode = str
-
-
-
+from os import mkdir
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -22,6 +20,24 @@ def health_check():
     """
     return "O.K", 200
 
+def let_there_be_table():
+    create_table = """ 
+        CREATE TABLE STORE_URL(
+            ID INT PRIMARY KEY,
+            ACT_URL TEXT NOT NULL,
+            CUSTOM_URL TEXT NOT NULL
+        );
+        """
+    try:
+        conn = sqlite3.connect('database/urls.db')
+    except sqlite3.OperationalError:
+        mkdir('database')
+        conn = sqlite3.connect('database/urls.db')
+        conn.execute(create_table)
+    finally:
+        conn = sqlite3.connect('database/urls.db')
+
+let_there_be_table()
 
 host = app.config['HOST']
 
@@ -29,7 +45,7 @@ host = app.config['HOST']
 def home():
     if request.method == 'POST':
         actual_url = str_encode(request.form.get('act_url'))
-        custom_route = str_encode(request.form.get('custom_url'))
+        custom_route = str_encode(request.form.get('custom_route'))
         if urlparse(actual_url).scheme == '':
             url = 'http://' + actual_url
         else:
