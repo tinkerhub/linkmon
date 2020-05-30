@@ -26,7 +26,7 @@ services:
   
   nginx:
     build: ops/nginx
-    container_name: nginx
+    container_name: nginx_1
     restart: always
     ports:
       - "8080:8080"
