@@ -17,8 +17,4 @@ RUN pip install --upgrade pip
 # Install the project and dependencies
 RUN pip install -e .
 
-#ENTRYPOINT [ "python" ]
-
-#CMD [ "donationpage/run.py" ]
-
 CMD ["uwsgi","ops/app.ini"]
