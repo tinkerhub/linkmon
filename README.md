@@ -11,7 +11,7 @@ We map the actual link to custom link and store in database. When the custom lin
 Create a ```env.dev.sh``` in ops directory and add the following 
 
 ```
-APP_SETTINGS=donationpage.config.TestingConfig
+APP_SETTINGS=linkmon.config.TestingConfig
 HOST=<host_url>
 ```
 
