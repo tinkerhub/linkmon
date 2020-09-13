@@ -32,7 +32,7 @@ for running
 The current env.dev.sh configuration is set for testing mode. For production edit the APP_SETTINGS in env.dev.sh as
 
 ```
-APP_SETTINGS=donationpage.config.ProductionConfig
+APP_SETTINGS=linkmon.config.ProductionConfig
 ```
 
 ## Contributors
